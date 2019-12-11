@@ -1,6 +1,7 @@
 const express = require("express");
 const exhbs = require("express-handlebars");
 const mongoose = require("mongoose");
+const routes = require("./routes")
 const app = express();
 const port = 3000;
 
@@ -22,6 +23,8 @@ app.set("view engine", "handlebars");
 
 app.use(express.urlencoded({extended: false}));
 app.use(express.json()); //replaced default notation with JSON (stream is default);
+
+app.use(routes);
 
 app.listen(port, () => console.log(`plant depo is running on port${port}`));
 
