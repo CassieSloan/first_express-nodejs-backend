@@ -1,8 +1,9 @@
 const PlantModel = require("../database/model/plant_model");
 
 const index = async (req, res) => {
+
     let plants = await PlantModel.find();
-    res.render("plants/index"); // automagically looks into views directory
+    res.render("plants/index", {plants}); // automagically looks into views directory
 }
 
 let make = (req, res)=> {

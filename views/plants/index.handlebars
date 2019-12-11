@@ -1,3 +1,18 @@
 
-
 <h1>This is a home for our plants!</h1>
+
+<a href="/plants/new">Create New Plant</a>
+
+{{#each plants}}
+<div>
+    <p>Species: {{ this.species }}</p>
+    <p>Size: {{ this.size }}</p>
+</div>
+<a href="/plants/{{this._id}}">View Plant</a>
+{{!-- notice the "?_method=DELETE" this must be added to use a delete verb --}}
+{{!-- Its a query param which is given 'method=DELETE' --}}
+<a href="/plants/{{this._id}}?_method=DELETE">Delete Plant</a>
+<a href="/plants/{{this._id}}/edit">Edit Plant</a>
+{{!-- This horizontal line is frowned upon --}}
+<hr />
+{{/each}}
